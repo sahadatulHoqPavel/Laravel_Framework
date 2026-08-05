@@ -12,4 +12,6 @@
                         <p class ="card-text">Mobile No: {{ $student->mobileNo}}</p>
                     </div>
 
-@endsection
+@endsection 
+
+

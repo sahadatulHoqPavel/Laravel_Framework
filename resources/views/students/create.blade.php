@@ -4,7 +4,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h2>Student Application</h2>
+                    <h2>Create Student</h2>
                 </div>
 
                 <div class="card-body"> 
