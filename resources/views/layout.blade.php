@@ -35,7 +35,7 @@
 
 div.content {
   margin-left: 200px;
-  padding: 1px 16px;
+  padding: 1px 20px;
   height: 1000px;
 }
 
@@ -84,7 +84,7 @@ div.content {
                     <a class="active" href="">Home</a>
                     <a href="{{ url('/students')}}" >Student</a>
                     <a href="{{ url('/teachers')}}">Teacher</a>
-                    <a href="#contact">Courses</a>
+                    <a href="{{url('/courses')}}">Courses</a>
                     <a href="#about">Enrollment</a>
                     <a href="#about">Payment</a>
                     </div>

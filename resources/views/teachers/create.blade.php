@@ -4,11 +4,11 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h2>Create </h2>
+                    <h2>Create Teacher</h2>
                 </div>
 
                 <div class="card-body"> 
-                    <form action="{{ url('/students') }}" method="POST">
+                    <form action="{{ url('/teacher') }}" method="POST">
                         {{ csrf_field() }}
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" name="name" id="name"></br>
