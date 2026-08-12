@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
-use App\Models\Student;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class CourseController extends Controller
@@ -38,32 +38,39 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id) : View
     {
-        //
+        $course = Course::find($id);
+        return view('courses.show')->with('course',$course);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id) : View
     {
-        //
+        $course = Course::find($id);
+        return view('courses.edit')->with('course',$course);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id) : RedirectResponse
     {
-        //
+        $course = Course::find($id);
+        $input = $request->all();
+        $course->update($input);
+        return redirect('courses');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id) : RedirectResponse
     {
-        //
+        $course = Course::find($id);
+        $course->delete();
+        return redirect('courses');
     }
 }

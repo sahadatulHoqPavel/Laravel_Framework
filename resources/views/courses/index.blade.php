@@ -31,8 +31,8 @@
                                 
 
                                 @for($i=0; $i< count($courses); $i++)
-                            <tr> 
-                                    <td>{{$courses[$i]->id}}</td>      
+                            <tr>     
+                                    <td>{{$i+1}}</td>  
                                     <td>{{$courses[$i]->course_code}}</td>
                                     <td>{{$courses[$i]->course_name}}</td>
                                     <td>{{$courses[$i]->syllabus}}</td>
