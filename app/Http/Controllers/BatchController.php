@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Batch;
+use App\Models\Course;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class BatchController extends Controller
@@ -39,7 +41,7 @@ class BatchController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id) : View
+    public function show(string $id, Course $in ) : View
     {
         $batch = Batch::find($id);
         return view('batches.show')->with('batch',$batch);
@@ -48,17 +50,22 @@ class BatchController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id) : View
     {
-        //
+        $batch = Batch::find($id);
+        return view('batches.edit')->with('batch',$batch);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id) : RedirectResponse
     {
-        //
+        $batch = Batch::find($id);
+        $input = $request->all();
+        $batch->update($input);
+        return redirect('batches');
+
     }
 
     /**
@@ -66,6 +73,8 @@ class BatchController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $batch = Batch::find($id);
+        $batch->delete();
+        return redirect('batches');
     }
 }

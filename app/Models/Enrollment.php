@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Enrollment extends Model
+{
+    use HasFactory;
+    protected $table= 'enrollments';
+    protected $primaryKey = 'id';
+    protected $fillable = ['enrollNo','batch_id','student_id','join_date','fee'];
+
+
+
+}
