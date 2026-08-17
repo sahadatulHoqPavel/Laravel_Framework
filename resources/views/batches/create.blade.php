@@ -12,7 +12,15 @@
                         {{ csrf_field() }}
                         <label for="course_code" class="form-label">Batch Name</label>
                         <input type="text" class="form-control" name="name" id="name"></br>
-                        <label for="course_name" class="form-label">Course Name</label>
+                        <label for="course_id" class="form-label">Course Name</label>
+                        <select name="course_id" id="course_id" class="form-control">
+                            @foreach($courses as $items)
+                                <option value="{{$items->id}}">
+                                    {{$items->course_name}}
+                                </option>
+                            @endforeach
+
+                        </select>
                         <input type="text" class="form-control" name="course_id" id="course_id"></br>
                         <label for="syllabus" class="form-label">Start Date</label>
                         <input type="date" class="form-control" name="start_date" id="start_date"></br> 

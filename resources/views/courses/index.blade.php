@@ -23,6 +23,7 @@
                                     <th>Course Code</th>
                                     <th>Course Name</th>
                                     <th>Syllabus</th>
+                                    <th>Action</th>
                                 
                                 </tr>
                             </thead>

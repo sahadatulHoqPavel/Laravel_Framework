@@ -4,7 +4,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h2>Create Courses </h2>
+                    <h2>Create Course </h2>
                 </div>
 
                 <div class="card-body"> 

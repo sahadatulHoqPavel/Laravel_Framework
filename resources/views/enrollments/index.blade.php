@@ -4,12 +4,12 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3>Batch Application</h3>
+                    <h3>Enrollments Application</h3>
                 </div>
 
                 <div class="card-body">
 
-                    <a href="{{ url('/batches/create') }}" class="btn btn-success btn-sm" title="Add New Student">
+                    <a href="{{ url('/enrollments/create') }}" class="btn btn-success btn-sm" title="Add New Student">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add New
                     </a>
 
@@ -20,38 +20,44 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Batch Name</th>
-                                    <th>Course Id</th>
-                                    <th>Start Date</th>
+                                    <th>Enroll No</th>
+                                    <th>Batch Id</th>
+                                    <th>Student Id</th>
+                                    <th>Join Date</th>
+                                    <th>Fee</th>
+                                    <th>Action</th>
                                 
                                 </tr>
                             </thead>
 
                             <tbody>
                          
-                                @for($i=0; $i< count($batches); $i++)
-                            <tr>     
-                                    <td>{{$i+1}}</td>  
-                                    <td>{{$batches[$i]->name}}</td>
-                                    <td>{{$batches[$i]->course_id}}</td>
-                                    <td>{{$batches[$i]->start_date}}</td>
+                                @for($i=0; $i< count($enrollments); $i++)
+                            <tr>  
+                                    <td>{{$i+1}}</td>
+                                    <td>{{$enrollments[$i]->enrollNo}}</td>
+                                    <td>{{$enrollments[$i]->batch_id}}</td>
+                                    <td>{{$enrollments[$i]->student_id}}</td>
+                                    <td>{{$enrollments[$i]->join_date}}</td>
+                                    <td>{{$enrollments[$i]->fee}}</td>
+                                    <td>Action</td>
 
                                     <td>
 
-                                        <a href="{{ url('/batches/' . $batches[$i]->id) }}" title="View Student">
+                                        <a href="{{ url('/enrollments/' . $enrollments[$i]->id) }}" title="View Student">
                                             <button class="btn btn-info btn-sm">
                                                 <i class="fa fa-eye" aria-hidden="true"></i> View
                                             </button>
                                         </a>
 
-                                        <a href="{{ url('/batches/' . $batches[$i]->id . '/edit') }}" title="Edit Student"> 
+                                        <a href="{{ url('/enrollments/' . $enrollments[$i]->id . '/edit') }}" title="Edit Student"> 
                                             <button class="btn btn-primary btn-sm">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                             </button>
                                         </a>
 
                                         <form method="POST"
-                                              action="{{ url('/batches/' . $batches[$i]->id) }}"
+                                              action="{{ url('/enrollments/' . $enrollments[$i]->id) }}"
                                               accept-charset="UTF-8"
                                               style="display:inline">
 

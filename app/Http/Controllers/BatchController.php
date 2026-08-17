@@ -25,7 +25,8 @@ class BatchController extends Controller
      */
     public function create() 
     {
-        return view('batches.create');
+        $courses = Course::all();
+        return view('batches.create')->with('courses',$courses);
     }
 
     /**
@@ -41,7 +42,7 @@ class BatchController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id, Course $in ) : View
+    public function show(string $id ) : View
     {
         $batch = Batch::find($id);
         return view('batches.show')->with('batch',$batch);

@@ -23,6 +23,7 @@
                                     <th>Batch Name</th>
                                     <th>Course Id</th>
                                     <th>Start Date</th>
+                                    <th>Action</th>
                                 
                                 </tr>
                             </thead>
