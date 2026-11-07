@@ -21,8 +21,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Enroll No</th>
-                                    <th>Batch Id</th>
-                                    <th>Student Id</th>
+                                    <th>Batch No</th>
+                                    <th>Student Name</th>
                                     <th>Join Date</th>
                                     <th>Fee</th>
                                     <th>Action</th>
@@ -31,33 +31,31 @@
                             </thead>
 
                             <tbody>
-                         
-                                @for($i=0; $i< count($enrollments); $i++)
+                                @foreach($enrollments as $enrollment)                    
                             <tr>  
-                                    <td>{{$i+1}}</td>
-                                    <td>{{$enrollments[$i]->enrollNo}}</td>
-                                    <td>{{$enrollments[$i]->batch_id}}</td>
-                                    <td>{{$enrollments[$i]->student_id}}</td>
-                                    <td>{{$enrollments[$i]->join_date}}</td>
-                                    <td>{{$enrollments[$i]->fee}}</td>
-                                    <td>Action</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$enrollment->enrollNo}}</td>
+                                    <td>{{$enrollment->batch->name}}</td>
+                                    <td>{{$enrollment->student->name}}</td>
+                                    <td>{{$enrollment->join_date}}</td>
+                                    <td>{{$enrollment->fee}}</td>
 
                                     <td>
 
-                                        <a href="{{ url('/enrollments/' . $enrollments[$i]->id) }}" title="View Student">
+                                        <a href="{{ url('/enrollments/' . $enrollment->id) }}" title="View Student">
                                             <button class="btn btn-info btn-sm">
                                                 <i class="fa fa-eye" aria-hidden="true"></i> View
                                             </button>
                                         </a>
 
-                                        <a href="{{ url('/enrollments/' . $enrollments[$i]->id . '/edit') }}" title="Edit Student"> 
+                                        <a href="{{ url('/enrollments/' . $enrollment->id. '/edit') }}" title="Edit Student"> 
                                             <button class="btn btn-primary btn-sm">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                             </button>
                                         </a>
 
                                         <form method="POST"
-                                              action="{{ url('/enrollments/' . $enrollments[$i]->id) }}"
+                                              action="{{ url('/enrollments/' . $enrollment->id) }}"
                                               accept-charset="UTF-8"
                                               style="display:inline">
 
@@ -76,7 +74,7 @@
                                     </td>
 
                                 </tr>
-                                @endfor
+                                @endforeach
 
                             </tbody>
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Batch;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -15,8 +15,10 @@ class EnrollmentController extends Controller
      */
     public function index()
     {
-        $enrollments = Enrollment::all();
-        return view('enrollments.index')->with('enrollments',$enrollments);
+        $enrollments = Enrollment::with(['batch','student'])->get();
+        $batches = Batch::all();
+        $students = Student::all();
+        return view('enrollments.index',compact('enrollments','batches','students'));
     }
 
     /**
@@ -34,7 +36,9 @@ class EnrollmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Enrollment::create($input);
+        return redirect('enrollments');
     }
 
     /**
@@ -42,16 +46,19 @@ class EnrollmentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $enrollment = Enrollment::find($id);
+        return view('enrollments.show')->with('enrollment',$enrollment);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id) : View
     {
-        //
-    }
+        $enrollment = Enrollment::find($id);
+        return view('enrollments.edit')->with('enrollment',$enrollment);
+         
+        }
 
     /**
      * Update the specified resource in storage.

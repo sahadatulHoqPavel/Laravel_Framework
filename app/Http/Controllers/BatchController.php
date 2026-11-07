@@ -16,6 +16,7 @@ class BatchController extends Controller
     public function index() : View
     {
         $batches = Batch::all();
+        $courses = Course::all();
         return view('batches.index')->with('batches',$batches);
 
     }
@@ -25,8 +26,11 @@ class BatchController extends Controller
      */
     public function create() 
     {
-        $courses = Course::all();
-        return view('batches.create')->with('courses',$courses);
+        $courses = Course::pluck('course_name','id');
+        return view('batches.create', compact('courses'));
+
+        // $courses = Course::all();
+        // return view('batches.create')->with('courses',$courses);
     }
 
     /**
